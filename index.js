@@ -23,7 +23,7 @@ router.post("/ussd", (req, res) => {
 
   if (text === "") {
     console.log(text);
-    response = `CON Welcome to Trekvibe! Choose language:
+    response = `CON Welcome to TemberaNawe! Choose language:
         1. Kinyarwanda
         2. English `;
   } else if (text === "1") {
@@ -73,7 +73,7 @@ router.post("/ussd", (req, res) => {
     }).catch((error) => {
       console.error(error);
     });
-    response = "END You will receive details about National Ethnographic of Rwanda via SMS.";
+    response = "Uraza kubona ubutumwa buguha amakuru arambuye muri SMS.";
     // kinyarwanda
   } else if (text === "2*1*1") {
     response = `CON Where to visit in HUYE
@@ -106,10 +106,44 @@ router.post("/ussd", (req, res) => {
     response = `CON Aho gusura muri MUSANZE?
     1. Volcanoes National Park
     2. Musanze Caves`;
+  }else if (text === "1*2*1*1") {
+    sms.send({
+      to: phoneNumber,
+      message: `Urakoze gusura IBIRUNGA! Dore uko amakuru y'ingenzi ugomba Kumenya:
+      - Italiki: Nyakanga 20, 2024
+      - Igiciro: 15,000 RWF
+      - Isaha yo Gusura: 09:00 AM
+      - Isaha yo Gufunga: 05:00 AM
+      - Uramutse ugize ikibazo wahamagara: +250 788 123 456
+      Tuzishimira Kubana namwe!`
+    }).then((response) => {
+      console.log(response);
+    }).catch((error) => {
+      console.error(error);
+    });
+    response = "Uraza kubona ubutumwa buguha amakuru arambuye muri SMS.";
+    // kinyarwanda
   } else if (text === "2*2*1") {
     response = `CON Where to Visit in MUSANZE?
     1. Volcanoes National Park
     2. Musanze Caves`;
+  }else if (text === "2*2*1*1") {
+    sms.send({
+      to: phoneNumber,
+      message: `Thank you for visiting Volcanoes National Park ! Here are the main details you must know:
+      - Date: July 20, 2024
+      - Price: 15,000 RWF
+      - Opening Hours: 09:00 AM
+      - Closing Time: 05:00 AM
+      - If you have a problem, call: +250 788 123 456
+      We will be happy to be with you`
+    }).then((response) => {
+      console.log(response);
+    }).catch((error) => {
+      console.error(error);
+    });
+    response = "END You will receive details about National Volcanoes Park of Rwanda via SMS.";
+    // english
   } else if (text === "1*3") {
     response = `CON Hitamo Akarere?
     1. Karongi
@@ -122,14 +156,48 @@ router.post("/ussd", (req, res) => {
     3. Nyamagabe`;
   } else if (text === "1*3*1") {
     response = `CON Aho gusura muri Karongi?
-    1. Karongi Hot Springs
+    1. Amashyuza ya Karongi
     2. Kivu Belt
     3. Bises`;
+  } else if (text === "1*3*1*1") {
+    sms.send({
+      to: phoneNumber,
+      message: `Urakoze gusura amashyuza ya Karongi ! Dore uko amakuru y'ingenzi ugomba Kumenya:
+      - Italiki: Nyakanga 20, 2024
+      - Igiciro: Ubuntu
+      - Isaha yo Gufungura: 09:00 AM
+      - Isaha yo Gufunga: 05:00 AM
+      - Uramutse ugize ikibazo wahamagara: +250 788 123 456
+      Tuzishimira Kubana namwe!`
+    }).then((response) => {
+      console.log(response);
+    }).catch((error) => {
+      console.error(error);
+    });
+    response = "Uraza kubona ubutumwa buguha amakuru arambuye muri SMS.";
+    // kinyarwanda
   } else if (text === "2*3*1") {
     response = `CON Where to Visit in Karongi?
     1. Karongi Hot Springs
     2. Kivu Belt
     3. Bises`;
+  }else if (text === "2*3*1*1") {
+    sms.send({
+      to: phoneNumber,
+      message: `Thank you for visiting Karongi Hot Springs ! Here are the main details you must know:
+      - Date: July 20, 2024
+      - Price: Free
+      - Opening Hours: 09:00 AM
+      - Closing Time: 05:00 AM
+      - If you have a problem, call: +250 788 123 456
+      We will be happy to be with you`
+    }).then((response) => {
+      console.log(response);
+    }).catch((error) => {
+      console.error(error);
+    });
+    response = "END You will receive details about Karongi Hot Springs of Rwanda via SMS.";
+    // english
   } else if (text === "1*4") {
     response = `CON Hitamo Akarere?
     1. Kayonza
@@ -137,6 +205,23 @@ router.post("/ussd", (req, res) => {
   } else if (text === "1*4*1") {
     response = `CON Aho gusura muri kayonza?
     1. Akagera National Park`;
+  }else if (text === "1*4*1*1") {
+    sms.send({
+      to: phoneNumber,
+      message: `Urakoze gusura Pariki y'Akagera ! Dore uko amakuru y'ingenzi ugomba Kumenya:
+      - Italiki: Nyakanga 20, 2024
+      - Igiciro: 15000 RWF 
+      - Isaha yo Gufungura: 09:00 AM
+      - Isaha yo Gufunga: 05:00 AM
+      - Uramutse ugize ikibazo wahamagara: +250 788 123 456
+      Tuzishimira Kubana namwe!`
+    }).then((response) => {
+      console.log(response);
+    }).catch((error) => {
+      console.error(error);
+    });
+    response = "Uraza kubona ubutumwa buguha amakuru arambuye muri SMS.";
+    // kinyarwanda
   } else if (text === "2*4") {
     response = `CON Choose the District?
     1. Kayonza
@@ -144,6 +229,23 @@ router.post("/ussd", (req, res) => {
   } else if (text === "2*4*1") {
     response = `CON Where to Visit in Kayonza?
     1. Akagera National Park`;
+  }else if (text === "2*4*1*1") {
+    sms.send({
+      to: phoneNumber,
+      message: `Thank you for visiting Akagera National Park ! Here are the main details you must know:
+      - Date: July 20, 2024
+      - Price: 15,000 RWF
+      - Opening Hours: 09:00 AM
+      - Closing Time: 05:00 AM
+      - If you have a problem, call: +250 788 123 456
+      We will be happy to be with you`
+    }).then((response) => {
+      console.log(response);
+    }).catch((error) => {
+      console.error(error);
+    });
+    response = " END You will receive details about Akagera National Park via SMS.";
+    // english
   } else if (text === "1*5") {
     response = `CON Hitamo Akarere?
     1. Nyarugenge
@@ -153,6 +255,23 @@ router.post("/ussd", (req, res) => {
     response = `CON Aho gusura muri Nyarugenge?
     1. Nyamirambo Neighborhood
     2. Kandt House Museum`;
+  }else if (text === "1*5*1*1") {
+    sms.send({
+      to: phoneNumber,
+      message: `Urakoze gusura Mu Biryogo! Dore uko amakuru y'ingenzi ugomba Kumenya:
+      - Italiki: Nyakanga 20, 2024
+      - Igiciro: Ubuntu
+      - Isaha yo Gufungura: 05:00 AM
+      - Isaha yo Gufunga: 11:00 AM
+      - Uramutse ugize ikibazo wahamagara kuri: +250 788 123 456
+      Tuzishimira Kubana namwe!`
+    }).then((response) => {
+      console.log(response);
+    }).catch((error) => {
+      console.error(error);
+    });
+    response = "Uraza kubona ubutumwa buguha amakuru arambuye muri SMS.";
+    // kinyarwanda
   } else if (text === "2*5") {
     response = `CON Choose The District?
     1. Nyarugenge
@@ -162,6 +281,23 @@ router.post("/ussd", (req, res) => {
     response = `CON Where to Visit in Nyarugenge?
     1. Nyamirambo Neighborhood
     2. Kandt House Museum`;
+  }else if (text === "2*5*1*1") {
+    sms.send({
+      to: phoneNumber,
+      message: `Thank you for visiting Nyamirambo Neighborhood ! Here are the main details to Notice:
+      - Date: July 20, 2024
+      - Price: Free
+      - Opening Hours: 09:00 AM
+      - Closing Time: 05:00 AM
+      - If you have a problem please call: +250 788 123 456.
+      We will be happy to be with you`
+    }).then((response) => {
+      console.log(response);
+    }).catch((error) => {
+      console.error(error);
+    });
+    response = "END You will receive details about National Ethnographic of Rwanda via SMS.";
+    // english
   }
 
   res.set("Content-Type", "text/plain");
