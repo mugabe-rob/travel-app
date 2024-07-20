@@ -1,11 +1,21 @@
+// index.js
 const express = require("express");
+const Africastalking = require("africastalking");
+const dotenv = require("dotenv");
+dotenv.config();
 
 const router = express.Router();
+const username = process.env.USERNAME;
+const apiKey = process.env.API_KEY;
+
+const africasTalking = Africastalking({
+  apiKey: apiKey,
+  username: username
+});
+
+const sms = africasTalking.SMS;
 
 router.post("/ussd", (req, res) => {
-
-
-
   const { sessionId, serviceCode, phoneNumber, text } = req.body;
 
   console.log('information:', req.body);
@@ -13,33 +23,24 @@ router.post("/ussd", (req, res) => {
 
   if (text === "") {
     console.log(text);
-
     response = `CON Welcome to Trekvibe! Choose language:
         1. Kinyarwanda
         2. English `;
   } else if (text === "1") {
-
     response = `CON Gusura Iyihe ntara?
     1. Amajyepfo
     2. Amajyaruguru
     3. Iburengerazuba
     4. Iburasirazuba
     5. Umujyi wa Kigali`;
-    // Kinyarwanda here!!!
-
   } else if (text === "2") {
-
-    // Business logic for first level response, option 2
-    // Start the response with END since it does not proceed further, (terminal request) it ENDs
     response = `CON Province to Visit?
     1. Southern Province
     2. Northern Province
     3. Western Province
     4. Eastern Province
-    5. Kigali City`
-    // English here!!!
+    5. Kigali City`;
   } else if (text === "1*1") {
-
     response = `CON Akahe Karere?
     1. Huye
     2. Kamonyi
@@ -53,89 +54,93 @@ router.post("/ussd", (req, res) => {
     3. Nyamagabe
     4. Gisagara
     5. Nyanza`;
-
   } else if (text === "1*1*1") {
     response = `CON Aho gusura muri HUYE
-1. National Ethnographic of Rwanda
-2. King's Palace Museum
-`;
+    1. National Ethnographic of Rwanda
+    2. King's Palace Museum`;
+  } else if (text === "1*1*1*1") {
+    sms.send({
+      to: phoneNumber,
+      message: `You have visited National Ethnographic of Rwanda`
+    }).then((response) => {
+      console.log(response);
+    }).catch((error) => {
+      console.error(error);
+    });
+    response = "END You will receive details about National Ethnographic of Rwanda via SMS.";
   } else if (text === "2*1*1") {
     response = `CON Where to visit in HUYE
-1. National Ethnographic of Rwanda
-2. King's Palace Museum
-`;
-  }
-  else if (text === "1*2") {
-
-    response = `CON Hitamo Aho uri?
-    1. Burera
-    2. Gakenke
-    3. Gicumbi
-    4. Musanze
-    5. Rulindo`;
+    1. National Ethnographic of Rwanda
+    2. King's Palace Museum`;
+  } else if (text === "1*2") {
+    response = `CON Akahe Karere?
+    1. Musanze`;
   } else if (text === "2*2") {
-
-    response = `Choose your location?
-    1. Burera
-    2. Gakenke
-    3. Gicumbi
-    4. Musanze
-    5. Rulindo`;
+    response = `CON Choose the district?
+    1. Musanze`;
+  } else if (text === "1*2*1") {
+    response = `CON Aho gusura muri MUSANZE?
+    1. Volcanoes National Park
+    2. Musanze Caves`;
+  } else if (text === "2*2*1") {
+    response = `CON Where to Visit in MUSANZE?
+    1. Volcanoes National Park
+    2. Musanze Caves`;
   } else if (text === "1*3") {
-
-    response = `CON Hitamo Aho uri?
+    response = `CON Hitamo Akarere?
     1. Karongi
-    2. Ngororero
-    3. Nyabihu
-    4. Nyamasheke
-    5. Rubavu
-    6. Rusizi
-    7. Rutsiro`;
+    2. Nyamasheke
+    3. Nyamagabe`;
   } else if (text === "2*3") {
-
-    response = `CON Choose your location?
+    response = `CON Choose the District?
     1. Karongi
-    2. Ngororero
-    3. Nyabihu
-    4. Nyamasheke
-    5. Rubavu
-    6. Rusizi
-    7. Rutsiro`;
+    2. Nyamasheke
+    3. Nyamagabe`;
+  } else if (text === "1*3*1") {
+    response = `CON Aho gusura muri Karongi?
+    1. Karongi Hot Springs
+    2. Kivu Belt
+    3. Bises`;
+  } else if (text === "2*3*1") {
+    response = `CON Where to Visit in Karongi?
+    1. Karongi Hot Springs
+    2. Kivu Belt
+    3. Bises`;
   } else if (text === "1*4") {
-
-    response = `CON Hitamo Aho uri?
-    1. Bugesera
-    2. Gatsibo
-    3. Kayonza 
-    4. Kirehe
-    5. Ngoma
-    6. Nyagatare
-    7. Rwamagana`;
+    response = `CON Hitamo Akarere?
+    1. Kayonza
+    2. Kirehe`;
+  } else if (text === "1*4*1") {
+    response = `CON Aho gusura muri kayonza?
+    1. Akagera National Park`;
   } else if (text === "2*4") {
-
-    response = `CON Choose your location?
-    1. Bugesera
-    2. Gatsibo
-    3. Kayonza 
-    4. Kirehe
-    5. Ngoma
-    6. Nyagatare
-    7. Rwamagana`;
+    response = `CON Choose the District?
+    1. Kayonza
+    2. Kirehe`;
+  } else if (text === "2*4*1") {
+    response = `CON Where to Visit in Kayonza?
+    1. Akagera National Park`;
   } else if (text === "1*5") {
-
-    response = `CON Hitamo Aho uri?
+    response = `CON Hitamo Akarere?
     1. Nyarugenge
     2. Kicukiro
     3. Gasabo`;
+  } else if (text === "1*5*1") {
+    response = `CON Aho gusura muri Nyarugenge?
+    1. Nyamirambo Neighborhood
+    2. Kandt House Museum`;
   } else if (text === "2*5") {
-
-    response = `CON Choose your location?
+    response = `CON Choose The District?
     1. Nyarugenge
     2. Kicukiro
     3. Gasabo`;
+  } else if (text === "2*5*1") {
+    response = `CON Where to Visit in Nyarugenge?
+    1. Nyamirambo Neighborhood
+    2. Kandt House Museum`;
   }
 
-  res.set("Content-Type: text/plain");
+  res.set("Content-Type", "text/plain");
   res.send(response);
 });
 
