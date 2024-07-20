@@ -296,7 +296,7 @@ router.post("/ussd", (req, res) => {
     }).catch((error) => {
       console.error(error);
     });
-    response = "END You will receive details about National Ethnographic of Rwanda via SMS.";
+    response = "END You will receive details about Nyamirambo Neighborhood of Rwanda via SMS.";
     // english
   }
 
