@@ -73,7 +73,7 @@ router.post("/ussd", (req, res) => {
     }).catch((error) => {
       console.error(error);
     });
-    response = "Uraza kubona ubutumwa buguha amakuru arambuye muri SMS.";
+    response = "CON Uraza kubona ubutumwa buguha amakuru arambuye muri SMS.";
     // kinyarwanda
   } else if (text === "2*1*1") {
     response = `CON Where to visit in HUYE
@@ -121,7 +121,7 @@ router.post("/ussd", (req, res) => {
     }).catch((error) => {
       console.error(error);
     });
-    response = "Uraza kubona ubutumwa buguha amakuru arambuye muri SMS.";
+    response = "CON Uraza kubona ubutumwa buguha amakuru arambuye muri SMS.";
     // kinyarwanda
   } else if (text === "2*2*1") {
     response = `CON Where to Visit in MUSANZE?
@@ -174,7 +174,7 @@ router.post("/ussd", (req, res) => {
     }).catch((error) => {
       console.error(error);
     });
-    response = "Uraza kubona ubutumwa buguha amakuru arambuye muri SMS.";
+    response = "CON Uraza kubona ubutumwa buguha amakuru arambuye muri SMS.";
     // kinyarwanda
   } else if (text === "2*3*1") {
     response = `CON Where to Visit in Karongi?
