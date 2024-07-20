@@ -61,17 +61,41 @@ router.post("/ussd", (req, res) => {
   } else if (text === "1*1*1*1") {
     sms.send({
       to: phoneNumber,
-      message: `You have visited National Ethnographic of Rwanda`
+      message: `Urakoze gusura Ingoro y'Amazina y'Abanyarwanda! Dore uko amakuru y'ingenzi y'ibikorwa byacu:
+      - Italiki: Nyakanga 20, 2024
+      - Igiciro: 10,000 RWF
+      - Isaha yo Gufungura: 09:00 AM
+      - Isaha yo Gufunga: 05:00 AM
+      - Uramutse ugize ikibazo wahamagara: +250 788 123 456
+      Tuzishimira Kubana namwe!`
     }).then((response) => {
       console.log(response);
     }).catch((error) => {
       console.error(error);
     });
     response = "END You will receive details about National Ethnographic of Rwanda via SMS.";
+    // kinyarwanda
   } else if (text === "2*1*1") {
     response = `CON Where to visit in HUYE
     1. National Ethnographic of Rwanda
     2. King's Palace Museum`;
+  }else if (text === "2*1*1*1") {
+    sms.send({
+      to: phoneNumber,
+      message: `Thank you for visiting the National Ethnographic of Rwanda ! Here are the main details of our activities:
+      - Date: July 20, 2024
+      - Price: 10,000 RWF
+      - Opening Hours: 09:00 AM
+      - Closing Time: 05:00 AM
+      - If you have a problem, call: +250 788 123 456
+      We will be happy to be with you`
+    }).then((response) => {
+      console.log(response);
+    }).catch((error) => {
+      console.error(error);
+    });
+    response = "END You will receive details about National Ethnographic of Rwanda via SMS.";
+    // english
   } else if (text === "1*2") {
     response = `CON Akahe Karere?
     1. Musanze`;
