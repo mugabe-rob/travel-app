@@ -62,7 +62,7 @@ router.post("/ussd", (req, res) => {
     sms.send({
       to: phoneNumber,
       message: `Urakoze gusura Ingoro y'Amazina y'Abanyarwanda! Dore uko amakuru y'ingenzi y'ibikorwa byacu:
-      - Italiki: Nyakanga 20, 2024
+      - Italiki: Nyakanga 20, 2025
       - Igiciro: 10,000 RWF
       - Isaha yo Gufungura: 09:00 AM
       - Isaha yo Gufunga: 05:00 AM
@@ -83,7 +83,7 @@ router.post("/ussd", (req, res) => {
     sms.send({
       to: phoneNumber,
       message: `Thank you for visiting the National Ethnographic of Rwanda ! Here are the main details of our activities:
-      - Date: July 20, 2024
+      - Date: July 20, 2025
       - Price: 10,000 RWF
       - Opening Hours: 09:00 AM
       - Closing Time: 05:00 AM
@@ -110,7 +110,7 @@ router.post("/ussd", (req, res) => {
     sms.send({
       to: phoneNumber,
       message: `Urakoze gusura IBIRUNGA! Dore uko amakuru y'ingenzi ugomba Kumenya:
-      - Italiki: Nyakanga 20, 2024
+      - Italiki: Nyakanga 20, 2025
       - Igiciro: 15,000 RWF
       - Isaha yo Gusura: 09:00 AM
       - Isaha yo Gufunga: 05:00 AM
@@ -131,7 +131,7 @@ router.post("/ussd", (req, res) => {
     sms.send({
       to: phoneNumber,
       message: `Thank you for visiting Volcanoes National Park ! Here are the main details you must know:
-      - Date: July 20, 2024
+      - Date: July 20, 2025
       - Price: 15,000 RWF
       - Opening Hours: 09:00 AM
       - Closing Time: 05:00 AM
@@ -163,7 +163,7 @@ router.post("/ussd", (req, res) => {
     sms.send({
       to: phoneNumber,
       message: `Urakoze gusura amashyuza ya Karongi ! Dore uko amakuru y'ingenzi ugomba Kumenya:
-      - Italiki: Nyakanga 20, 2024
+      - Italiki: Nyakanga 20, 2025
       - Igiciro: Ubuntu
       - Isaha yo Gufungura: 09:00 AM
       - Isaha yo Gufunga: 05:00 AM
@@ -185,7 +185,7 @@ router.post("/ussd", (req, res) => {
     sms.send({
       to: phoneNumber,
       message: `Thank you for visiting Karongi Hot Springs ! Here are the main details you must know:
-      - Date: July 20, 2024
+      - Date: July 20, 2025
       - Price: Free
       - Opening Hours: 09:00 AM
       - Closing Time: 05:00 AM
@@ -209,7 +209,7 @@ router.post("/ussd", (req, res) => {
     sms.send({
       to: phoneNumber,
       message: `Urakoze gusura Pariki y'Akagera ! Dore uko amakuru y'ingenzi ugomba Kumenya:
-      - Italiki: Nyakanga 20, 2024
+      - Italiki: Nyakanga 20, 2025
       - Igiciro: 15000 RWF 
       - Isaha yo Gufungura: 09:00 AM
       - Isaha yo Gufunga: 05:00 AM
@@ -233,7 +233,7 @@ router.post("/ussd", (req, res) => {
     sms.send({
       to: phoneNumber,
       message: `Thank you for visiting Akagera National Park ! Here are the main details you must know:
-      - Date: July 20, 2024
+      - Date: July 20, 2025
       - Price: 15,000 RWF
       - Opening Hours: 09:00 AM
       - Closing Time: 05:00 AM
@@ -259,7 +259,7 @@ router.post("/ussd", (req, res) => {
     sms.send({
       to: phoneNumber,
       message: `Urakoze gusura Mu Biryogo! Dore uko amakuru y'ingenzi ugomba Kumenya:
-      - Italiki: Nyakanga 20, 2024
+      - Italiki: Nyakanga 20, 2025
       - Igiciro: Ubuntu
       - Isaha yo Gufungura: 05:00 AM
       - Isaha yo Gufunga: 11:00 AM
@@ -285,7 +285,7 @@ router.post("/ussd", (req, res) => {
     sms.send({
       to: phoneNumber,
       message: `Thank you for visiting Nyamirambo Neighborhood ! Here are the main details to Notice:
-      - Date: July 20, 2024
+      - Date: July 20, 2025
       - Price: Free
       - Opening Hours: 09:00 AM
       - Closing Time: 05:00 AM
